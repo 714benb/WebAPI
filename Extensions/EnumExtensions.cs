@@ -11,10 +11,12 @@ namespace WebAPI.API.Extensions
     {
         public static string ToDescriptionString<TEnum>(this TEnum @enum)
         {
-            FieldInfo info = @enum.GetType().GetField(@enum.ToString());
-            var attributes = (DescriptionAttribute[]) info.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            var info = @enum.GetType().GetField(@enum.ToString());
+            var attributes = (DescriptionAttribute[]) info?.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            if (attributes == null || attributes.Length == 0)
+                return @enum.ToString();
 
-            return attributes?[0].Description ?? @enum.ToString();
+            return attributes[0].Description;
         }
     }
 }
