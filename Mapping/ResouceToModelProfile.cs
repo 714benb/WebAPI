@@ -9,7 +9,9 @@ namespace WebAPI.API.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveXEntityResource, XEntity>();
-            CreateMap<SaveYEntityResource, YEntity>();
+            CreateMap<SaveYEntityResource, YEntity>()
+                .ForMember(src => src.UnitOfMeasurement, opt => opt.MapFrom(
+                    src => (EUnitOfMeasurement) src.UnitOfMeasurement));
         }
     }
 }

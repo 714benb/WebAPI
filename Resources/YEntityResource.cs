@@ -7,7 +7,7 @@ namespace WebAPI.API.Resources
         public int Id {get;set;}
         public string Name {get; set;}
         public short QuantityInPackage {get; set;}
-        public EUnitOfMeasurement UnitOfMeasurement {get; set;}
+        public string UnitOfMeasurement {get; set;}
         public XEntityResource XEntity { get; set; }
     }
 }
