@@ -26,7 +26,7 @@ namespace WebAPI.API.Controllers
         public async Task<IEnumerable<YEntityResource>> GetAllAsync()
         {
             var XEntities = await _YEntitieservice.ListAsync();
-            var resources = _mapper.Map<IEnumerable<YEntity>,IEnumerable<YEntityResource>>(XEntities);
+            var resources = _mapper.Map<IEnumerable<YEntity>, IEnumerable<YEntityResource>>(XEntities);
             return resources;
         }
         // [HttpGet("{id}")]
