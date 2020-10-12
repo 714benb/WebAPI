@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Supermarket.API.Domain.Models;
+using WebAPI.API.Domain.Models;
 
-namespace Supermarket.API.Persistence.Contexts
+namespace WebAPI.API.Persistence.Contexts
 {
     public class AppDbContext: DbContext
     {

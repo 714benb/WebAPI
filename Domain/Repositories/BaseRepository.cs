@@ -1,6 +1,6 @@
-using Supermarket.API.Persistence.Contexts;
+using WebAPI.API.Persistence.Contexts;
 
-namespace Supermarket.API.Domain.Repositories
+namespace WebAPI.API.Domain.Repositories
 {
     public abstract class BaseRepository
     {

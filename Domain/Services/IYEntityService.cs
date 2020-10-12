@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Supermarket.API.Domain.Models;
-using Supermarket.API.Domain.Services.Communication;
+using WebAPI.API.Domain.Models;
+using WebAPI.API.Domain.Services.Communication;
 
 
-namespace Supermarket.API.Domain.Services
+namespace WebAPI.API.Domain.Services
 {
     public interface IYEntitieservice
     {

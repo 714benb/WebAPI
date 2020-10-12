@@ -12,10 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Supermarket.API.Domain.Repositories;
-using Supermarket.API.Domain.Services;
-using Supermarket.API.Persistence.Contexts;
-using Supermarket.API.Persistence.Repositories;
+using WebAPI.API.Domain.Repositories;
+using WebAPI.API.Domain.Services;
+using WebAPI.API.Persistence.Contexts;
+using WebAPI.API.Persistence.Repositories;
 
 namespace WebAPI
 {

@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Supermarket.API.Domain.Models;
+using WebAPI.API.Domain.Models;
 
-namespace Supermarket.API.Domain.Repositories
+namespace WebAPI.API.Domain.Repositories
 {
     public interface IYEntityRepository
     {

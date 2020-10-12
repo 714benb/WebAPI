@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Supermarket.API.Domain.Models
+namespace WebAPI.API.Domain.Models
 {
     public class XEntity
     {

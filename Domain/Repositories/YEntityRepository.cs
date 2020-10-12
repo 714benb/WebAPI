@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Supermarket.API.Domain.Models;
-using Supermarket.API.Persistence.Contexts;
+using WebAPI.API.Domain.Models;
+using WebAPI.API.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace Supermarket.API.Domain.Repositories
+namespace WebAPI.API.Domain.Repositories
 {
     public class YEntityRepository: BaseRepository, IYEntityRepository
     {

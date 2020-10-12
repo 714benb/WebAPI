@@ -1,6 +1,6 @@
-using Supermarket.API.Domain.Models;
+using WebAPI.API.Domain.Models;
 
-namespace Supermarket.API.Domain.Services.Communication
+namespace WebAPI.API.Domain.Services.Communication
 {
     public class YEntityResponse : BaseResponse
     {

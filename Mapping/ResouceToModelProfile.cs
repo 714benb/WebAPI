@@ -1,8 +1,8 @@
 using AutoMapper;
-using Supermarket.API.Domain.Models;
-using Supermarket.API.Resources;
+using WebAPI.API.Domain.Models;
+using WebAPI.API.Resources;
 
-namespace Supermarket.API.Mapping
+namespace WebAPI.API.Mapping
 {
     public class ResourceToModelProfile : Profile
     {

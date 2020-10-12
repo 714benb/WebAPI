@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
-using Supermarket.API.Domain.Services;
-using Supermarket.API.Domain.Models;
+using WebAPI.API.Domain.Services;
+using WebAPI.API.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Supermarket.API.Resources;
-using Supermarket.API.Extensions;
+using WebAPI.API.Resources;
+using WebAPI.API.Extensions;
 
-namespace Supermarket.API.Controllers
+namespace WebAPI.API.Controllers
 {
     [Route("/api/[controller]")]
     public class XEntitiesController: ControllerBase

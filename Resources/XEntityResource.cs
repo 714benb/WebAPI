@@ -1,4 +1,4 @@
-namespace Supermarket.API.Resources
+namespace WebAPI.API.Resources
 {
     public class XEntityResource
     {

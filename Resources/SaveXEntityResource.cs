@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Supermarket.API.Resources
+namespace WebAPI.API.Resources
 {
     public class SaveXEntityResource
     {
