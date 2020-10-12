@@ -6,12 +6,12 @@ using WebAPI.API.Domain.Services.Communication;
 
 namespace WebAPI.API.Domain.Services
 {
-    public class YEntitieservice : IYEntitieservice
+    public class YEntitieService : IYEntitieservice
     {
         private readonly IYEntityRepository _yEntityRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public YEntitieservice(IYEntityRepository yEntityRepository, IUnitOfWork unitOfWork)
+        public YEntitieService(IYEntityRepository yEntityRepository, IUnitOfWork unitOfWork)
         {
             _yEntityRepository = yEntityRepository;
             _unitOfWork = unitOfWork;

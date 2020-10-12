@@ -13,7 +13,9 @@ namespace WebAPI.API.Domain.Repositories
 
         public async Task<IEnumerable<YEntity>> ListAsync()
         {
-            return await _context.YEntities.ToListAsync();
+            return await _context.YEntities
+                .Include(p => p.XEntity)
+                .ToListAsync();
         }
         public async Task AddAsync(YEntity yEntity)
         {

@@ -39,7 +39,7 @@ namespace WebAPI
             services.AddScoped<IXEntityRepository, XEntityRepository>();
             services.AddScoped<IYEntityRepository, YEntityRepository>();
             services.AddScoped<IXEntityService, XEntityService>();
-            services.AddScoped<IYEntitieservice, YEntitieservice>();
+            services.AddScoped<IYEntitieservice, YEntitieService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));
         }
