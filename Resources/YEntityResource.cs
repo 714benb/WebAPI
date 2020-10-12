@@ -8,6 +8,6 @@ namespace WebAPI.API.Resources
         public string Name {get; set;}
         public short QuantityInPackage {get; set;}
         public EUnitOfMeasurement UnitOfMeasurement {get; set;}
-        public int XEntityId {get; set;}
+        public XEntityResource XEntity { get; set; }
     }
 }
