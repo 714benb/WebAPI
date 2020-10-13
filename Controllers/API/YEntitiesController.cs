@@ -39,10 +39,6 @@ namespace WebAPI.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveYEntityResource resource)
         {
-            if (false == ModelState.IsValid)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
             var yEntity = _mapper.Map<SaveYEntityResource, YEntity>(resource);
             var result = await _YEntitieservice.SaveAsync(yEntity);
             if (false == result.Success)
@@ -58,10 +54,6 @@ namespace WebAPI.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveYEntityResource resource)
         {
-            if (false == ModelState.IsValid)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
             var yEntity = _mapper.Map<SaveYEntityResource, YEntity>(resource);
             var result = await _YEntitieservice.UpdateAsync(id, yEntity);
 
