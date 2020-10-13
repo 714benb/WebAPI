@@ -8,12 +8,14 @@ namespace WebAPI.API.Domain.Services
 {
     public class YEntitieService : IYEntitieservice
     {
+        private readonly IXEntityRepository _xEntityRepository;
         private readonly IYEntityRepository _yEntityRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public YEntitieService(IYEntityRepository yEntityRepository, IUnitOfWork unitOfWork)
+        public YEntitieService(IXEntityRepository xEntityRepository, IYEntityRepository yEntityRepository, IUnitOfWork unitOfWork)
         {
             _yEntityRepository = yEntityRepository;
+            _xEntityRepository = xEntityRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -58,6 +60,11 @@ namespace WebAPI.API.Domain.Services
         {
             try
             {
+                var existingXEntity = _xEntityRepository.FindByIdAsync(yEntity.XEntityId);
+                if (null == existingXEntity)
+                {
+                    return new YEntityResponse($"Invalid XEntity ID specified: {yEntity}");
+                }
                 await _yEntityRepository.AddAsync(yEntity);
                 await _unitOfWork.CompleteAsync();
 

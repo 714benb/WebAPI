@@ -9,9 +9,11 @@ namespace WebAPI.API.Resources
         [MaxLength(30)]
         public string Name {get; set;}
         [Required]
+        [Range(0,100)]
         public short QuantityInPackage {get; set;}
         [Required]
-        public EUnitOfMeasurement UnitOfMeasurement {get; set;}
+        [Range(1,5)]
+        public int UnitOfMeasurement {get; set;}
         [Required]
         public int XEntityId {get; set;}
     }
