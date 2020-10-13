@@ -46,7 +46,7 @@ namespace WebAPI.API.Controllers
         /// A response that indicates failure (400) or success (201) and the yEntity data
         /// </returns>
         [HttpPost]
-        [ProducesResponseType(typeof(YEntityResource), 201)]
+        [ProducesResponseType(typeof(YEntityResource), 200)]
         [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveYEntityResource resource)
         {
