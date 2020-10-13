@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using WebAPI.API.Resources;
 using WebAPI.API.Extensions;
+using WebAPI.Resources;
 
 namespace WebAPI.API.Controllers
 {
@@ -22,21 +23,31 @@ namespace WebAPI.API.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// List all the yEntities;
+        /// </summary>
+        /// <returns>
+        /// an enumerable list of yEntities;
+        /// </returns>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<YEntityResource>), 200)]
         public async Task<IEnumerable<YEntityResource>> GetAllAsync()
         {
             var XEntities = await _YEntitieservice.ListAsync();
             var resources = _mapper.Map<IEnumerable<YEntity>, IEnumerable<YEntityResource>>(XEntities);
             return resources;
         }
-        // [HttpGet("{id}")]
-        // public async Task<IActionResult> FindByIdYEntityAsync(int id)
-        // {
-        //     var yEntityResource = await _YEntitieservice.FindByIdAsync(id);
-        //     return Ok(yEntityResource);
-        // }
 
+        /// <summary>
+        /// Saves/Creates a new yEntity.
+        /// </summary>
+        /// <param name="resource">The yEntity data</param>
+        /// <returns>
+        /// A response that indicates failure (400) or success (201) and the yEntity data
+        /// </returns>
         [HttpPost]
+        [ProducesResponseType(typeof(YEntityResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveYEntityResource resource)
         {
             var yEntity = _mapper.Map<SaveYEntityResource, YEntity>(resource);
@@ -46,12 +57,22 @@ namespace WebAPI.API.Controllers
                 return BadRequest(result.Message);
             }
 
-            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(yEntity);
-            
+            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.Resource);
             return Ok(yEntityResource);
+            //return CreatedAtAction(nameof(PostAsync),new {id = yEntityResource.Id}, yEntityResource);
         }
 
+        /// <summary>
+        /// Updates and existing yEntity if one exist for the given identifier
+        /// </summary>
+        /// <param name="id">The yEntity identifier</param>
+        /// <param name="resource">The data to be used for the update.</param>
+        /// <returns>
+        /// A response that indicates failure (400) or success (200) and the yEntity data
+        /// </returns>
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(YEntityResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveYEntityResource resource)
         {
             var yEntity = _mapper.Map<SaveYEntityResource, YEntity>(resource);
@@ -62,12 +83,20 @@ namespace WebAPI.API.Controllers
                 return BadRequest(result.Message);
             }
 
-            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.YEntity);
-
+            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.Resource);
             return Ok(yEntityResource);
         }
 
+        /// <summary>
+        /// Delete the yEntity if found by the given identifier
+        /// </summary>
+        /// <param name="id">The yEntity identifier</param>
+        /// <returns>
+        /// A response that indicates failure (400) or success (200) and the yEntity data
+        /// </returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(YEntityResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _YEntitieservice.DeleteAsync(id);
@@ -77,8 +106,7 @@ namespace WebAPI.API.Controllers
                 return BadRequest(result.Message);
             }
 
-            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.YEntity);
-
+            var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.Resource);
             return Ok(yEntityResource);
         }
 
