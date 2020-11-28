@@ -11,6 +11,8 @@ using WebAPI.Resources;
 namespace WebAPI.API.Controllers
 {
     [Route("/api/[controller]")]
+    [Produces("application/json")]
+    [ApiController]
     public class XEntitiesController: ControllerBase
     {
         
