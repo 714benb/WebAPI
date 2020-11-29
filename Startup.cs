@@ -16,6 +16,7 @@ using WebAPI.API.Domain.Repositories;
 using WebAPI.API.Domain.Services;
 using WebAPI.API.Persistence.Contexts;
 using WebAPI.API.Persistence.Repositories;
+using WebAPI.Controllers.Config;
 
 namespace WebAPI
 {
@@ -32,6 +33,11 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllers().ConfigureApiBehaviorOptions(options =>
+            {
+                // Adds a custom error response factory when ModelState is invalid
+                options.InvalidModelStateResponseFactory = InvalidModelStateResponseFactory.ProduceErrorResponse;
+            });
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("X-YEntity-InMemoryDB");

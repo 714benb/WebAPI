@@ -2,21 +2,15 @@ using WebAPI.API.Domain.Models;
 
 namespace WebAPI.API.Domain.Services.Communication
 {
-    public class XEntityResponse : BaseResponse
+    public class XEntityResponse : BaseResponse<XEntity>
     {
-        public XEntity XEntity { get; private set; }
-
-        private XEntityResponse(bool success, string message, XEntity xEntity) : base(success, message)
-        {
-            XEntity = xEntity;
-        }
 
         /// <summary>
         /// Creates a success response.
         /// </summary>
         /// <param name="xEntity">Saved or deleted xEntity.</param>
         /// <returns>Response.</returns>
-        public XEntityResponse(XEntity xEntity) : this(true, string.Empty, xEntity)
+        public XEntityResponse(XEntity xEntity) : base(xEntity)
         { }
 
         /// <summary>
@@ -24,7 +18,7 @@ namespace WebAPI.API.Domain.Services.Communication
         /// </summary>
         /// <param name="message">Error message.</param>
         /// <returns>Response.</returns>
-        public XEntityResponse(string message) : this(false, message, null)
+        public XEntityResponse(string message) : base(message)
         { }
     }
 
