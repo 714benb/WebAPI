@@ -11,8 +11,6 @@ using WebAPI.Resources;
 namespace WebAPI.API.Controllers
 {
     [Route("/api/[controller]")]
-    [Produces("application/json")]
-    [ApiController]
     public class YEntitiesController: ControllerBase
     {
         
@@ -61,6 +59,7 @@ namespace WebAPI.API.Controllers
 
             var yEntityResource = _mapper.Map<YEntity, YEntityResource>(result.Resource);
             return Ok(yEntityResource);
+            //return CreatedAtAction(nameof(PostAsync),new {id = yEntityResource.Id}, yEntityResource);
         }
 
         /// <summary>
